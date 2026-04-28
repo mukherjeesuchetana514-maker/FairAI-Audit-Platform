@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FairAI | The Intelligent Bias Auditor</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <div class="parallax-bg">
+        <div class="blob blob1"></div>
+        <div class="blob blob2"></div>
+        <div class="blob blob3"></div>
+    </div>
+
+    <div class="scroller">
+        
+        <section class="page" id="hero">
+            <header>
+                <div class="logo">FairAI <span class="dot">.</span></div>
+            </header>
+            <div class="content hero-content in-view">
+                <h2>Systemic Bias ends with <span class="glow">FairAI.</span></h2>
+                    <p>Choose your inspection path to begin.</p>
+        
+            <div class="portal-container">
+                <button class="portal-card" onclick="scrollToSection('tabular')">
+                    <span class="badge">B2B / Organizational</span>
+                    <h4>Audit Dataset</h4>
+                    <p>Inspect CSVs for structural & algorithmic bias.</p>
+                </button>
+
+                <button class="portal-card neon-purple" onclick="scrollToSection('generative')">
+                    <span class="badge">Public / Consumer</span>
+                    <h4>Audit AI Text</h4>
+                    <p>Detect subtle prejudice in GenAI responses.</p>
+                </button>
+            </div>
+            </div>
+        </section>
+
+        <section class="page" id="tabular">
+            <div class="glass-container">
+                <div class="panel-header">
+                    <span class="badge">B2B Auditor</span>
+                    <h3>Tabular Dataset Inspection</h3>
+                    <p>Drag and drop any CSV. We automatically detect demographics, decisions, and run the math.</p>
+                </div>
+                
+                <div id="drop-zone" class="drop-zone">
+                    <div class="drop-zone-content">
+                        <span class="icon">📄</span>
+                        <p>Drop CSV here or click to browse</p>
+                        <span class="sub">Dynamic columns & automated Gemini report</span>
+                    </div>
+                    <input type="file" id="fileInput" hidden accept=".csv">
+                </div>
+
+                <div id="tabular-results" class="hidden">
+                    <div id="tabular-loader" class="loader hidden">Scanning Dataset...</div>
+                    <div id="tabular-data-view" class="results-view hidden">
+                        </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="page" id="generative">
+            <div class="glass-container">
+                <div class="panel-header">
+                    <span class="badge badge-neon">Public Auditor</span>
+                    <h3>AI Text Semantic Analysis</h3>
+                    <p>Paste a response from any Generative AI model to check for subtle bias or prejudice.</p>
+                </div>
+                
+                <textarea id="text-input" placeholder="Paste GenAI text here (e.g., Gemini, ChatGPT, Claude responses)..."></textarea>
+                <button id="text-audit-btn" class="glow-btn">Run Audit</button>
+
+                <div id="text-results" class="results-view hidden">
+                    <h3>Gemini AI Analysis:</h3>
+                    <p id="text-report-content"></p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
