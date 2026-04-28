@@ -1,3 +1,5 @@
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 import io
 import os
 import json
@@ -422,6 +424,13 @@ CRITICAL INSTRUCTION: You MUST respond with ONLY a valid JSON object matching th
 # Endpoint — Text Audit
 # ---------------------------------------------------------------------------
 
+# Tell FastAPI to map the "/static" web URL to your actual "Frontend" folder
+app.mount("/static", StaticFiles(directory="Frontend"), name="static")
+
+# When a user visits the main link, serve the HTML file from the Frontend folder
+@app.get("/")
+async def read_index():
+    return FileResponse(os.path.join("Frontend", "index.html"))
 
 @app.post(
     "/audit-text",
