@@ -4,3 +4,4 @@ google-genai
 pandas
 python-multipart
 pydantic
+python-dotenv
