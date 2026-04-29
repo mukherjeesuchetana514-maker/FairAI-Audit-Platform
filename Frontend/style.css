@@ -54,13 +54,15 @@ body {
 
 .page {
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;    /* Changed: Start at screen height */
+    height: auto;         /* Added: Stretch if content grows */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     scroll-snap-align: start;
     padding: 2rem;
+    padding-bottom: 60px; /* Added: Extra breathing room at the bottom */
     position: relative;
 }
 
