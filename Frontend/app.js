@@ -8,7 +8,7 @@ function scrollToSection(sectionId) {
 document.addEventListener('DOMContentLoaded', () => {
     
     // --- Configuration & Elements ---
-    const API_BASE = "http://127.0.0.1:8000";
+    const API_BASE = "";
     const scroller = document.querySelector('.scroller');
     const blobs = document.querySelectorAll('.blob');
     const pages = document.querySelectorAll('.page');
