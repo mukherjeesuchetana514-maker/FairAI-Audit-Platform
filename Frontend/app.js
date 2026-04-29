@@ -121,12 +121,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Parse JSON results from backend and inject HTML
     // Parse JSON results from Claude's upgraded backend and inject HTML
+    // Parse JSON results from backend and inject HTML
     function renderTabularResults(data, fileName) {
         tabularLoader.classList.add('hide-me');
         tabularDataView.classList.remove('hide-me');
 
-        // Check the new Claude backend label: "fairness_metrics"
+        // Check the new backend label: "fairness_metrics"
         const alertClass = data.fairness_metrics.bias_detected ? 'alert' : '';
+
+        // --- NEW: DYNAMIC SUBTITLE LOGIC ---
+        // If the backend says "success_eda", use "Data Profile Structure". Otherwise use "Detected Demographic"
+        const subtitleText = (data.status === "success_eda") 
+            ? "Data Profile Structure" 
+            : "Detected Demographic";
 
         tabularDataView.innerHTML = `
             <h4 style="color: var(--accent); margin-bottom: 10px;">Audit Report: ${fileName}</h4>
@@ -141,7 +148,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
                 <div class="stat-card" style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1);">
                     <div style="font-size: 1.2rem; font-weight: bold; color: #fff;">${data.auto_detected_protected_attribute}</div>
-                    <div style="font-size: 0.8rem; color: #aaa;">Detected Demographic</div>
+                    
+                    <!-- NEW: INJECTING THE DYNAMIC SUBTITLE HERE -->
+                    <div style="font-size: 0.8rem; color: #aaa;">${subtitleText}</div>
+                    
                 </div>
             </div>
             <button onclick="window.location.reload()" class="glow-btn" style="margin-top: 20px; width: 100%;">Run New Inspection</button>
