@@ -308,3 +308,24 @@ textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 10p
         height: 120px; /* Make text area slightly smaller for touch keyboards */
     }
 }
+/* --- MOBILE RESPONSIVENESS HOTFIX --- */
+@media (max-width: 768px) {
+    /* Allow main sections to stretch taller than the screen if needed */
+    .page, .section {
+        height: auto !important;
+        min-height: 100vh;
+        padding-bottom: 40px; /* Adds breathing room between sections */
+    }
+
+    /* Prevent the inner dark cards from overflowing */
+    .glass-panel, .card, section > div {
+        height: auto !important;
+        margin-bottom: 30px;
+    }
+
+    /* Make the dashed drop-zone a bit more compact on phones */
+    #drop-zone {
+        min-height: 250px; 
+        padding: 20px 10px;
+    }
+}
