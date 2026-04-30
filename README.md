@@ -96,7 +96,7 @@ It transforms complex AI auditing into a no-code, user-friendly experience.
 > ![Use_Case](UseCaseDiagram.png)
  
 ### 📌 Process Flow Diagram
-> ![Process_Flow](ProcessFlowDiagram.png)
+> ![Process_Flow](ProcessFlowDiagram_Final.png)
 
 ---
 
