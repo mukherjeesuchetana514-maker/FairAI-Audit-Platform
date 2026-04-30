@@ -90,13 +90,13 @@ It transforms complex AI auditing into a no-code, user-friendly experience.
 ## 🏗️ Architecture
 
 ### 📌 System Architecture Diagram
-> ![Alt text](image_url_or_path)
+> ![System_Architecture](ArchitectureDiagram.png)
 
 ### 📌 Use Case Diagram
-> ![Alt text](image_url_or_path)
+> ![Use_Case](UseCaseDiagram.png)
  
-### 📌 Workflow Flow Diagram
-> ![Alt text](image_url_or_path)
+### 📌 Process Flow Diagram
+> ![Process_Flow](ProcessFlowDiagram.png)
 
 ---
 
